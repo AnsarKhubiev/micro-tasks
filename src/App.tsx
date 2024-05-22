@@ -1,19 +1,20 @@
-import './App.css';
-import {Header} from "./microTasks/01_vlojennye_komponenty/Header";
-import {Body} from "./microTasks/01_vlojennye_komponenty/Body";
-import {Footer} from "./microTasks/01_vlojennye_komponenty/Footer";
-import {NewComponent, students, topCars} from "./microTasks/02_map/NewComponent";
+import {UniversalButton} from "./microTasks/03_button/UniversalButton";
+
 
 function App() {
+    const ButtonFoo = (subscriber: string, age: number, address: string) => {
+        console.log(`I'am ${subscriber}. I'am ${age}. ${address}`)
+    }
+
+    const StupidBtn = () => {
+        console.log("I'am stupid button")
+    }
+
     return (
         <>
-            {/*01 вложенные компоненты*/}
-            {/*<Header title="Hello World!"/>*/}
-            {/*<Body titleForBody="NEW BODY"/>*/}
-            {/*<Footer/>*/}
-
-            {/*02 метод map*/}
-            <NewComponent students={students} topCars={topCars}/>
+            <UniversalButton name="My Youtube Channel 1" callBack={() => ButtonFoo("Vasya", 21, "Lomonosova 10")}/>
+            <UniversalButton name="My Youtube Channel 2" callBack={() => ButtonFoo("Ivan", 24, "Lomonosova 1342")}/>
+            <UniversalButton name="Stupid button" callBack={StupidBtn}/>
         </>
     );
 }

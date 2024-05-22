@@ -35,7 +35,7 @@ export const topCars = [
 ]
 
 
-export const NewComponent = ({students, topCars}: NewComponentType) => {
+export const MapMethod = ({students, topCars}: NewComponentType) => {
     return (
         <>
             <ul>
