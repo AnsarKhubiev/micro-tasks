@@ -1,20 +1,24 @@
 import {UniversalButton} from "./microTasks/03_button/UniversalButton";
+import {useState} from "react";
 
 
 function App() {
-    const ButtonFoo = (subscriber: string, age: number, address: string) => {
-        console.log(`I'am ${subscriber}. I'am ${age}. ${address}`)
+
+    let [a, setA] = useState(1)
+
+    const onClickHandler = () => {
+        setA(++a)
     }
 
-    const StupidBtn = () => {
-        console.log("I'am stupid button")
+    const reset = () => {
+        setA(a = 0)
     }
 
     return (
         <>
-            <UniversalButton name="My Youtube Channel 1" callBack={() => ButtonFoo("Vasya", 21, "Lomonosova 10")}/>
-            <UniversalButton name="My Youtube Channel 2" callBack={() => ButtonFoo("Ivan", 24, "Lomonosova 1342")}/>
-            <UniversalButton name="Stupid button" callBack={StupidBtn}/>
+            <h1>{a}</h1>
+            <button onClick={onClickHandler}>number</button>
+            <button onClick={reset}>0</button>
         </>
     );
 }
