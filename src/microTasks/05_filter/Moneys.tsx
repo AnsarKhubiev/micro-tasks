@@ -1,10 +1,5 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React, {useState} from 'react';
 import {UniversalButton} from "../03_button/UniversalButton";
-
-type MoneyPropsType = {
-    currentMoney: MoneyType[]
-    setFilter: Dispatch<SetStateAction<"Dollars" | "RUBLS" | "All">>
-}
 
 type MoneyType = {
     banknote: string
@@ -12,7 +7,25 @@ type MoneyType = {
     number: string
 }
 
-export const Moneys = ({currentMoney, setFilter}: MoneyPropsType) => {
+export const Moneys = () => {
+
+    const [money, setMoney] = useState([
+        {banknote: 'Dollars', value: 100, number: ' a1234567890'},
+        {banknote: 'Dollars', value: 50, number: ' z1234567890'},
+        {banknote: 'RUBLS', value: 100, number: ' w1234567890'},
+        {banknote: 'Dollars', value: 100, number: ' e1234567890'},
+        {banknote: 'Dollars', value: 50, number: ' c1234567890'},
+        {banknote: 'RUBLS', value: 100, number: ' r1234567890'},
+        {banknote: 'Dollars', value: 50, number: ' x1234567890'},
+        {banknote: 'RUBLS', value: 50, number: ' v1234567890'},
+    ])
+
+    const [filter, setFilter] = useState<"All" | "RUBLS" | "Dollars">('All')
+
+    let currentMoney: MoneyType[] = money;
+    if (filter !== "All") {
+        currentMoney = money.filter(filteredMoney => filteredMoney.banknote === filter)
+    }
 
     return (
         <ul>
