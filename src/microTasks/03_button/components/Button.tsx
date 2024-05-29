@@ -13,10 +13,10 @@ export const Button = () => {
 
     return (
         <div>
-            <button onClick={()=>myFirstSubscriber('Vasya')}>MyYoutubeChanel-1</button>
-            <button onClick={()=>myFirstSubscriber("Ivan")}>MyYoutubeChanel-2</button>
+            <button onClick={() => myFirstSubscriber('Vasya')}>MyYoutubeChanel-1</button>
+            <button onClick={() => myFirstSubscriber("Ivan")}>MyYoutubeChanel-2</button>
             <button onClick={foo1}>1</button>
-            <button onClick={()=>foo2(100200)}>2</button>
+            <button onClick={() => foo2(100200)}>2</button>
         </div>
     );
 };

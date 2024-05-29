@@ -1,14 +1,14 @@
-import React, {ChangeEvent, useState} from 'react';
+import {ChangeEvent, useState} from "react";
 
 type FullInputPropsType = {
-    addMessage: (title: string)=> void
+    addMessage: (title: string) => void
 }
 
 export const FullInput = ({addMessage}: FullInputPropsType) => {
-    const [title, setTitle] = useState('')
+    let [title, setTitle] = useState('')
 
     const onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value);
+        setTitle(e.currentTarget.value)
     }
 
     const onClickButtonHandler = () => {
@@ -18,7 +18,7 @@ export const FullInput = ({addMessage}: FullInputPropsType) => {
 
     return (
         <div>
-            <input placeholder="full input" value={title} onChange={onChangeInputHandler}/>
+            <input placeholder={'full input'} value={title} onChange={onChangeInputHandler}/>
             <button onClick={onClickButtonHandler}>+</button>
         </div>
     );
