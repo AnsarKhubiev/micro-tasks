@@ -1,13 +1,10 @@
 type ButtonType = {
     name: string
-    callBack: () => void
+    callBack: (title: string) => void
 }
 
 export const UniversalButton = ({name, callBack}: ButtonType) => {
-
-    const onClickHandler = () => {
-        callBack()
-    }
+    const onClickHandler = () => callBack(name)
 
     return <button onClick={onClickHandler}>{name}</button>
 };

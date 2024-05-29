@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {UniversalButton} from "../03_button/UniversalButton";
+import {UniversalButton} from "../../03_button/components/UniversalButton";
 
 type MoneyType = {
     banknote: string
@@ -7,24 +7,16 @@ type MoneyType = {
     number: string
 }
 
-export const Moneys = () => {
+type MoneysPropsType = {
+    moneys: MoneyType[]
+}
 
-    const [money, setMoney] = useState([
-        {banknote: 'Dollars', value: 100, number: ' a1234567890'},
-        {banknote: 'Dollars', value: 50, number: ' z1234567890'},
-        {banknote: 'RUBLS', value: 100, number: ' w1234567890'},
-        {banknote: 'Dollars', value: 100, number: ' e1234567890'},
-        {banknote: 'Dollars', value: 50, number: ' c1234567890'},
-        {banknote: 'RUBLS', value: 100, number: ' r1234567890'},
-        {banknote: 'Dollars', value: 50, number: ' x1234567890'},
-        {banknote: 'RUBLS', value: 50, number: ' v1234567890'},
-    ])
-
+export const Moneys = ({moneys}: MoneysPropsType) => {
     const [filter, setFilter] = useState<"All" | "RUBLS" | "Dollars">('All')
 
-    let currentMoney: MoneyType[] = money;
+    let currentMoney: MoneyType[] = moneys;
     if (filter !== "All") {
-        currentMoney = money.filter(filteredMoney => filteredMoney.banknote === filter)
+        currentMoney = moneys.filter(filteredMoney => filteredMoney.banknote === filter)
     }
 
     return (
