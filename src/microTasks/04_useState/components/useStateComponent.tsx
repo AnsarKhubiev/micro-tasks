@@ -1,5 +1,6 @@
 import React from "react";
-import {FilterType, MoneyType} from "../../App";
+import {FilterType, MoneyType} from "../App04";
+
 
 type UseStateComponentPropsType = {
     currentMoney: MoneyType
@@ -7,12 +8,14 @@ type UseStateComponentPropsType = {
 }
 
 export const UseStateComponent = ({currentMoney, onClickFilterHandler}: UseStateComponentPropsType) => {
+
+
     return (
         <div>
             <ul>
-                {currentMoney.map((item) => {
+                {currentMoney.map((item, index) => {
                     return (
-                        <li key={item.number}>
+                        <li key={index}>
                             <span>{item.banknote} </span>
                             <span>{item.nominal}</span>
                             <span>{item.number}</span>
